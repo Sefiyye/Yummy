@@ -1,0 +1,76 @@
+﻿@model List<Chef>
+<div class="card-body">
+   
+    <div class="table-responsive pt-3">
+        <div class="my-2">
+            <a asp-controller="chef" asp-action="create" class="btn btn-outline-info">Create Chef</a>
+        </div>
+        <table class="table table-success">
+            <thead>
+
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                     <th>
+                        Name
+                    </th>
+                    <th>
+                        Profession
+                    </th>
+                    <th>
+                        Subtitle
+                    </th>
+                    <th>
+                        Settings
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Chef chef in Model)
+                {
+                <tr>
+                    <td>
+                        @chef.Id
+                    </td>
+                    <td>
+                        <img style="width: 150px; height:100px" src="~/admin/images/@chef.Image" />
+                    </td>
+                      <td>
+                        @chef.Name
+                    </td>
+                      <td>
+                        @chef.Profession
+                    </td>
+                    <td>
+                        @if (chef.Subtitle.Length >= 30)
+                        {
+                            @(chef.Subtitle.Substring(0, 30).ToString() + "...");
+                        }
+                        else
+                        {
+                            @chef.Subtitle
+                        }
+                    </td>
+                    <td class="d-flex align-items-center" style="height:150px">
+                        <div class="detail">
+                            <a class="btn btn-outline-primary" asp-controller="chef" asp-action="detail" asp-route-id="@chef.Id">Detail</a>
+                        </div>
+                        <div class="edit ms-2">
+                            <a class="btn btn-outline-warning" asp-controller="chef" asp-action="edit" asp-route-id="@chef.Id">Edit</a>
+                        </div>
+                        <div class="delete ms-2">
+                            <a class="btn btn-outline-danger" asp-controller="chef" asp-action="delete" asp-route-id="@chef.Id">Delete</a>
+                        </div>
+
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

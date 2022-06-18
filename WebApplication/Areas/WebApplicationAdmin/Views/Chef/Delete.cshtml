@@ -1,0 +1,28 @@
+﻿@model Chef
+<div>
+    <div>
+        <label asp-for="Id">Id</label>
+        <p>@Model.Id</p>
+    </div>
+    <div>
+        <label asp-for="Image">Image</label>
+        <p>@Model.Image</p>
+    </div>
+    <div>
+        <label asp-for="Name">Name</label>
+        <p>@Model.Name</p>
+    </div>
+    <div>
+        <label asp-for="Profession">Profession</label>
+        <p>@Model.Profession</p>
+    </div>
+     <div>
+        <label asp-for="Subtitle">Subtitle</label>
+        <p>@Model.Subtitle</p>
+    </div>
+    <div>
+        <form method="post">
+            <button type="submit" class="btn btn-lg btn-pinterest">Delete</button>
+        </form>
+    </div>
+</div>
